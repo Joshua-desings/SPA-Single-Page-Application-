@@ -12,9 +12,14 @@ app.use(bodyparser.json());
 
 app.use(express.json());
 
-const authRoutes = require('./src/routes/auth.js')
+/* Rutas con Router de Express */
 
-app.use('/api/user', authRoutes)
+const verifyToken = require('./src/middlewares/validate-token');
+const authRoutes = require('./src/routes/auth.js');
+const prodsRoutes = require('./src/routes/productos.js')
+
+app.use('/api/user', authRoutes);
+app.use('/api/productos', verifyToken, prodsRoutes);
 
 const URI = `mongodb+srv://${process.env.USER}:${process.env.PASS}@farmacia.dbkfd9e.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 mongoose.connect(URI)

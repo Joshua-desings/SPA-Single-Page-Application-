@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const User = require('../models/User');
 
+const jwt = require('jsonwebtoken')
+
+/* Esquemas de Validación */
 const Joi = require('@hapi/joi');
 
 const schemaRegister = Joi.object({
@@ -16,6 +19,7 @@ const schemaLogin = Joi.object({
 
 const bcrypt = require('bcrypt');
 
+/* Ruta register */
 router.post('/register', async (req, res) => {
 
     const { error } = schemaRegister.validate(req.body)
@@ -24,6 +28,7 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({ error: error.details[0].message })
     }
 
+    /* Comprobar que el Email este disponible para registrar usuario */
     const isEmailExist = await User.findOne({ email: req.body.email });
     if (isEmailExist) {
         return res.status(400).json(
@@ -31,6 +36,7 @@ router.post('/register', async (req, res) => {
         )
     }
 
+    /* Cifrado de contraseña */
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
 
@@ -52,6 +58,7 @@ router.post('/register', async (req, res) => {
     }
 })
 
+/* Ruta login */
 router.post('/login', async (req, res) => {
 
     const { error } = schemaLogin.validate(req.body)
@@ -66,15 +73,16 @@ router.post('/login', async (req, res) => {
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if (!validPass) return res.status(400).json({ error: 'Email/Contraseña no válida' })
 
+    /* Firma del token */
     const token = jwt.sign({
         name: user.name,
         id: user._id
-    }, process.env.TOKEN_SECRET)
+    }, process.env.TOKEN_SECRET);
     
     res.header('auth-token', token).json({
         error: null,
         data: {token}
-    })
+    });
 });
 
 module.exports = router;
