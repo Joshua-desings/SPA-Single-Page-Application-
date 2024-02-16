@@ -12,6 +12,36 @@ const schemaProds = Joi.object({
     img: Joi.string()
 });
 
+router.get('/listeProd/', async (req, res) => {
+
+    try {
+        const products = await Product.find()
+        res.status(200).json({
+            error: null,
+            data: products
+        })
+    }
+    catch (error) {
+        res.status(400).json({ error })
+    }
+
+});
+
+router.get('/Prod/:_id', async (req, res) => {
+
+    try {
+        const product = await Product.findOne(req.params)
+        res.status(200).json({
+            error: null,
+            data: product
+        })
+    }
+    catch (error) {
+        res.status(400).json({ error })
+    }
+
+});
+
 router.post('/addProd', async (req, res) => {
 
     const { error } = schemaProds.validate(req.body)
@@ -40,6 +70,36 @@ router.post('/addProd', async (req, res) => {
         res.json({
             error: null,
             data: savedProd
+        })
+    }
+    catch (error) {
+        res.status(400).json({ error })
+    }
+
+});
+
+router.put('/updateProd/:_id', async (req, res) => {
+
+    try {
+        const prodUpdate = await Product.updateOne( req.params, {$set: req.body} )
+        res.json({
+            error: null,
+            data: prodUpdate
+        })
+    }
+    catch (error) {
+        res.status(400).json({ error })
+    }
+
+});
+
+router.delete('/deleteProd/:_id', async (req, res) => {
+
+    try {
+        const prodDelete = await Product.deleteOne( req.params )
+        res.json({
+            error: null,
+            data: prodDelete
         })
     }
     catch (error) {
