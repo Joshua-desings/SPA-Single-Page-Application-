@@ -14,7 +14,7 @@ function PaginationNav({ currentPage, itemsPerPage, totalItems }) {
           className={`font-kodchasan flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight ${
             i === currentPage
               ? "text-primary-600 bg-primary-50 border border-primary-300 hover:bg-primary-100 hover:text-primary-700 "
-              : "text-gray-500 bg-white border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+              : "text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
           }`}
         >
           {i}
