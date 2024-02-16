@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import useDropdown from '../../hooks/useDropdown';
 
-function TableRow({ productName, category, brand, quantity, price }) {
+function TableRow({ name, category, stock, price, img }) {
   const { isOpen, toggleDropdown, closeDropdowns } = useDropdown(false);
   const dropdownRef = useRef(null);
 
@@ -21,12 +21,12 @@ function TableRow({ productName, category, brand, quantity, price }) {
         scope="row"
         className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
-        {productName}
+        {name}
       </th>
       <td className="px-4 py-3">{category}</td>
-      <td className="px-4 py-3">{brand}</td>
-      <td className="px-4 py-3">{quantity}</td>
+      <td className="px-4 py-3">{stock}</td>
       <td className="px-4 py-3">{price}</td>
+      <td className="px-4 py-3">{img}</td>
       <td className="px-4 py-3 flex items-center justify-end relative">
         <button
           onClick={toggleDropdown}

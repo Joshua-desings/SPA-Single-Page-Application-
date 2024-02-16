@@ -55,11 +55,11 @@ function InventoryTable({ data }) {
                 {data.map((item, index) => (
                   <TableRow
                     key={index}
-                    productName={item.productName}
+                    name={item.name}
                     category={item.category}
-                    quantity={item.quantity}
-                    brand={item.brand}
+                    stock={item.stock}
                     price={item.price}
+                    img={item.img}
                   />
                 ))}
               </tbody>

@@ -12,7 +12,7 @@ const schemaProds = Joi.object({
     img: Joi.string()
 });
 
-router.get('/listeProd/', async (req, res) => {
+router.get('/', async (req, res) => {
 
     try {
         const products = await Product.find()
