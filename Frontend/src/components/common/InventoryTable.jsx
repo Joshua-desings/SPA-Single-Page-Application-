@@ -41,10 +41,10 @@ function InventoryTable({ data }) {
                     Cantidad
                   </th>
                   <th scope="col" className="px-4 py-3">
-                    Fabricante
+                    Precio
                   </th>
                   <th scope="col" className="px-4 py-3">
-                    Precio
+                    Imagen
                   </th>
                   <th scope="col" className="px-4 py-3">
                     <span className="sr-only">Acciones</span>
@@ -59,7 +59,9 @@ function InventoryTable({ data }) {
                     category={item.category}
                     stock={item.stock}
                     price={item.price}
-                    img={item.img}
+                    img={item.img == 'false' 
+                      ? 'N/a'
+                      : <img src={item.img} className="max-w-auto max-h-8" /> }
                   />
                 ))}
               </tbody>
