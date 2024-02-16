@@ -26,7 +26,7 @@ function TableRow({ name, category, stock, price, img }) {
       <td className="px-4 py-3">{category}</td>
       <td className="px-4 py-3">{stock}</td>
       <td className="px-4 py-3">{price}</td>
-      <td className="px-4 py-3">{img}</td>
+      <td className="px-4 py-2">{img}</td>
       <td className="px-4 py-3 flex items-center justify-end relative">
         <button
           onClick={toggleDropdown}
