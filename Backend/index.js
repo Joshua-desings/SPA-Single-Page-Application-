@@ -25,7 +25,8 @@ const prodsRoutes = require('./src/routes/productos.js')
 app.use('/api/user', authRoutes);
 app.use('/api/productos', prodsRoutes);
 
-const URI = `mongodb+srv://${process.env.USER}:${process.env.PASS}@farmacia.dbkfd9e.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const URI = "mongodb+srv://user_2:lqURkeXsRTlzRhcm@farmacia.dbkfd9e.mongodb.net/?retryWrites=true&w=majority"
+//`mongodb+srv://${process.env.USER}:${process.env.PASS}@farmacia.dbkfd9e.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 mongoose.connect(URI)
   .then(() => {
     console.log('Se conecto a MongoDB')
