@@ -1,10 +1,21 @@
 import React from 'react';
+import ProductForm from './ProductForm';
 
 function AddProductButton() {
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    //ProductForm({addProduct: 1})
+    console.log('The link was clicked.');
+  }
+
   return (
+    <>
+    <ProductForm />
     <button
       type="button"
       className="flex items-center justify-center text-white bg-[#239089] hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-kodchasan font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+      onClick={handleClick}
     >
       <svg
         className="h-3.5 w-3.5 mr-2"
@@ -21,6 +32,7 @@ function AddProductButton() {
       </svg>
       Agregar Producto
     </button>
+    </>
   );
 }
 

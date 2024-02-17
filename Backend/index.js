@@ -18,7 +18,6 @@ app.use(cors({
 }));
 
 /* Rutas con Router de Express */
-
 const verifyToken = require('./src/middlewares/validate-token');
 const authRoutes = require('./src/routes/auth.js');
 const prodsRoutes = require('./src/routes/productos.js')
