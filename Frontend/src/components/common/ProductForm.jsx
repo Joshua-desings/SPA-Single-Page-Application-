@@ -17,8 +17,6 @@ function ProductForm({ addProduct }) {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    console.log(product)
-
     await fetch('http://localhost:5000/api/productos/addProd', {
       method: 'POST',
       headers: myHeaders,

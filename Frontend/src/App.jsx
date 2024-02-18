@@ -6,14 +6,7 @@ import './App.css';
 function App() {
   // Recopilar los porductos desde la api
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([
-  { name: 'Producto 1', category: 'Categoría 1', stock: 10, img: 'Marca 1', price: 100 },
-  { name: 'Producto 5', category: 'Categoría 2', stock: 20, img: 'https://images.dog.ceo/breeds/cotondetulear/IMAG1063.jpg', price: 200 },
-  { name: 'Producto 1', category: 'Categoría 1', stock: 10, img: 'Marca 1', price: 100 },
-  { name: 'Producto 2', category: 'Categoría 2', stock: 20, img: 'Marca 2', price: 200 },
-  { name: 'Producto 1', category: 'Categoría 1', stock: 10, img: 'Marca 1', price: 100 },
-  { name: 'Producto 2', category: 'Categoría 2', stock: 20, img: 'Marca 2', price: 200 },
-  { name: 'Producto 2', category: 'Categoría 2', stock: 20, img: 'Marca 2', price: 200 },]);
+  const [data, setData] = useState([]);
   
   const fetchData = async () => {
     await fetch("http://localhost:5000/api/productos")

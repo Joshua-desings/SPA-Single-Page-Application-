@@ -1,6 +1,5 @@
 import React from "react";
 import SearchBar from "./SearchBar";
-//import AddProductButton from "./AddProductButton";
 import ProductForm from './ProductForm';
 import ActionsDropdown from "./ActionsDropdown";
 import FilterDropdown from "./FilterDropdown";
@@ -30,7 +29,7 @@ function InventoryTable({ data }) {
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 font-kodchasan">
-              <thead className="text-xs text-base text-[#1E1E1E] font-bold uppercase bg-[#239089] border-1 border-[#F4F4F4] dark:bg-gray-700 dark:text-gray-400">
+              <thead className="text-xs text-[#1E1E1E] font-bold uppercase bg-[#239089] border-1 border-[#F4F4F4] dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="px-4 py-3">
                     Producto
@@ -74,14 +73,14 @@ function InventoryTable({ data }) {
             aria-label="Table navigation"
           >
             <PaginationInfo
-              currentPage={1} // Puedes pasar la página actual como prop
-              itemsPerPage={10} // Puedes pasar la cantidad de ítems por página como prop
-              totalItems={data.length} // Puedes pasar la longitud de los datos como total de ítems
+              currentPage={1}
+              itemsPerPage={10}
+              totalItems={data.length -1}
             />
             <PaginationNav
               currentPage={1}
               itemsPerPage={10}
-              totalItems={data.length}
+              totalItems={data.length -1}
             />
           </nav>
         </div>

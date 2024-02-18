@@ -6,6 +6,28 @@ function TableRow({ _id, name, category, stock, price, img }) {
   const { isOpen, toggleDropdown, closeDropdowns } = useDropdown(false);
   const dropdownRef = useRef(null);
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    await fetch('http://localhost:5000/api/productos/deleteProd/'+_id, {
+      method: 'DELETE',
+      headers: myHeaders
+    })
+      .then(response => response.json())
+      .then(data => {
+        //deleteProduct(data);
+        console.log(data);
+        setShowModal(false);
+        setProduct({});
+        e.target.reset();
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   const menuClasses = isOpen ?
     "absolute z-10 top-1/2 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 mt-4" :
     "absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 hidden";
@@ -50,6 +72,7 @@ function TableRow({ _id, name, category, stock, price, img }) {
             <a
               href="#"
               className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              onClick={handleDelete}
             >
               Borrar
             </a>
