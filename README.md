@@ -51,10 +51,6 @@ Corre el servidor en el directorio de /Backend.
 
 - [Figma del proyecto](https://www.figma.com/file/8egjlThhBf3Q9sn1Ky4QKk/Farmacia-Bienestar-Express-S.A?type=design&node-id=7%3A170&mode=design&t=6kEDu9VI2dOnyJfD-1)
 
-- [Informe del proyecto](https://docs.google.com/document/d/1m-57cPXqBskSHNuJ1SbmukEuR-Ji6Yeayx3JSd1fJcQ/edit?usp=sharing)
-
-- [Video sobre Funcionamiento de Backend](https://youtu.be/NozU1pWf1Ww)
-
 ## Autores
 
 - [@mendezleoa](https://www.github.com/mendezleoa) Programador de Backend y la Base de datos.
